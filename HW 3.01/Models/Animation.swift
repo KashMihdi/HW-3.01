@@ -7,10 +7,8 @@
 
 import Foundation
 
-class Animation {
+final class Animation {
 
-    private static let dataStore = AnimationSetting.shared
-    
     let preset: String
     let curve: String
     let force: CGFloat
@@ -26,12 +24,13 @@ class Animation {
     }
     
     static func setAnimation() -> Animation {
-        Animation(
-            preset: dataStore.preset.randomElement() ?? "",
-            curve: dataStore.curve.randomElement() ?? "",
-            force: CGFloat.random(in: dataStore.force),
-            duration: CGFloat.random(in: dataStore.duration),
-            delay: CGFloat.random(in: dataStore.delay)
+        let dataStore = AnimationSetting.shared
+        return Animation(
+            preset: dataStore.presets.randomElement() ?? "",
+            curve: dataStore.curves.randomElement() ?? "",
+            force: CGFloat.random(in: dataStore.forces),
+            duration: CGFloat.random(in: dataStore.durations),
+            delay: CGFloat.random(in: dataStore.delays)
         )
     }
 }
