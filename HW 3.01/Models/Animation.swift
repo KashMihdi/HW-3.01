@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Animation {
+struct Animation {
 
     let preset: String
     let curve: String
@@ -28,9 +28,9 @@ final class Animation {
         return Animation(
             preset: dataStore.presets.randomElement() ?? "",
             curve: dataStore.curves.randomElement() ?? "",
-            force: CGFloat.random(in: dataStore.forces),
-            duration: CGFloat.random(in: dataStore.durations),
-            delay: CGFloat.random(in: dataStore.delays)
+            force: CGFloat.random(in: 0.5...1.5),
+            duration: CGFloat.random(in: 2...4),
+            delay: CGFloat.random(in: 0...1)
         )
     }
 }

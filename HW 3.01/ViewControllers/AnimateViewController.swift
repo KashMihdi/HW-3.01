@@ -10,10 +10,10 @@ import SpringAnimation
 
 final class AnimateViewController: UIViewController {
     
-    private var animation = Animation.setAnimation()
-    
     @IBOutlet weak var animatingView: SpringView!
     @IBOutlet weak var animateNameLabel: UILabel!
+    
+    private var animation = Animation.setAnimation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
